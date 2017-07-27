@@ -1,0 +1,19 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'runner.CivilizationGame'
+
+jar {
+    manifest {
+        attributes( 'Main-Class' : 'runner.CivilizationGame',
+        "Class-Path": configurations.compile.collect { it.getName() }.join(' '))
+    }
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
